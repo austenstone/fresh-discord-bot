@@ -1,6 +1,12 @@
 /** @jsx h */
 import { h } from "preact";
-import Counter from "../islands/Counter.tsx";
+import { Handlers } from "$fresh/server.ts";
+
+export const handler: Handlers = {
+  GET(_req, _ctx) {
+    return Response.redirect(`https://discord.com/api/oauth2/authorize?client_id=994689091226583081&scope=applications.commands`)
+  },
+};
 
 export default function Home() {
   return (
@@ -11,10 +17,8 @@ export default function Home() {
         alt="the fresh logo: a sliced lemon dripping with juice"
       />
       <p>
-        Welcome to `fresh`. Try update this message in the ./routes/index.tsx
-        file, and refresh.
+        Welcome to `fresh`.
       </p>
-      <Counter start={3} />
     </div>
   );
 }
